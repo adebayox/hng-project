@@ -1,5 +1,5 @@
 const express = require('express');
-
+const cors = require('cors');
 const serverless = require('serverless-http');
 
 const importData = require("../data.json");
@@ -8,7 +8,12 @@ const router = express.Router();
 
 const app = express();
 
-//api endpoint
+// cors
+app.use(cors({
+    origin: '*'
+}));
+
+//routers
 router.get('/', (req, res) => {
     res.json ("hello world");
 });
